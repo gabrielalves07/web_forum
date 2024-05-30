@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+* {
+    outline: none;
+}
+
+header > div.search {
+    max-width: 250px;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 12px;
+}
+
+header > div.search > form > input {
+    width: 100%;
+    background-color: #00000000;
+    border: none;
+}
+
+.fa-magnifying-glass {
+    color: lightgray;
+}

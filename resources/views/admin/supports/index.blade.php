@@ -2,17 +2,27 @@
 
 @section('content')
 
-    <header class="container d-flex justify-content-between my-4 align-center">
-        <h5 class="m-0 py-1">Fórum <span class="badge rounded-pill bg-dark">{{ $supports->total() }} dúvidas</span> </h5>
+    <header class="container d-flex flex-column">
 
-        <a href="{{ route('supports.create') }}" class="btn btn-dark m-0 d-flex justify-content-between align-items-center gap-2"> <i class="fa-solid fa-circle-plus"></i> <p class="m-0">Criar Dúvida</p></a>
+        <div class="d-flex justify-content-between my-4 align-center" style="width: 100%">
+            <h5 class="m-0 py-1">Fórum <span class="badge rounded-pill bg-dark">{{ $supports->total() }} dúvidas</span> </h5>
+
+            <a href="{{ route('supports.create') }}" class="btn btn-dark m-0 d-flex justify-content-between align-items-center gap-2"> <i class="fa-solid fa-circle-plus"></i> <p class="m-0">Criar Dúvida</p></a>
+        </div>
+
+        <div class="search mb-4 d-flex align-items-center gap-2 bg-dark">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <form action="" method="GET">
+                <input type="text" placeholder="Procurar" name="filter" value="{{ $filters['filter'] ?? '' }}">
+            </form>
+        </div>
+
     </header>
 
     <main class="container">
-
         <div class="table">
-            <table class="table table-bordered align-middle">
-                <thead class="table-dark">
+            <table class="table table-bordered align-middle table-dark">
+                <thead>
                     <th>Assunto</th>
                     <th>Status</th>
                     <th>Descrição</th>
