@@ -21,7 +21,7 @@ class SupportController extends Controller
         // we have access of all methods of the Class above
         $supports = $this->service->paginate(
             page: $request->get('page', 1),
-            totalPerPage: $request->get('per_page', 1),
+            totalPerPage: $request->get('per_page', 5),
             filter: $request->filter
         );
 

@@ -3,7 +3,7 @@
     $queryParams = (isset($appends) && gettype($appends) === 'array' ? '&' . http_build_query($appends) : '');
 @endphp
     <nav class="d-flex justify-items-center justify-content-between">
-        <div class="d-flex justify-content-between flex-fill">
+        <div class="d-flex justify-content-end flex-fill">
             <ul class="pagination">
                 {{-- Previous Page Link --}}
                 @if ($paginator->isFirstPage())

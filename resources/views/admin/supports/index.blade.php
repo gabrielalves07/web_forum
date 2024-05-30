@@ -2,11 +2,13 @@
 
 @section('content')
 
-    <div class="container">
+    <header class="container d-flex justify-content-between my-4 align-center">
+        <h5 class="m-0 py-1">Fórum <span class="badge rounded-pill bg-dark">{{ $supports->total() }} dúvidas</span> </h5>
 
-        <h1 class="m-0 py-4">Listagem de suportes</h1>
+        <a href="{{ route('supports.create') }}" class="btn btn-dark m-0 d-flex justify-content-between align-items-center gap-2"> <i class="fa-solid fa-circle-plus"></i> <p class="m-0">Criar Dúvida</p></a>
+    </header>
 
-        <a href="{{ route('supports.create') }}" class="btn btn-success mb-4">Criar Dúvida</a>
+    <main class="container">
 
         <div class="table">
             <table class="table table-bordered align-middle">
@@ -20,7 +22,7 @@
                     @foreach ($supports->items() as $support)
                         <tr>
                             <td>{{ $support->subject }}</td>
-                            <td>{{ getStatusSupport($support->status) }}</td>
+                            <td> <span class="badge rounded-pill bg-success py-2 px-3">{{ getStatusSupport($support->status) }}</span></td>
                             <td>{{ $support->body }}</td>
                             <td>
                                 <a href="{{ route('supports.show', $support->id) }}" class="btn btn-primary">Ver</a>
@@ -36,6 +38,6 @@
             :paginator="$supports"
             :appends="$filters"
         />
-    </div>
+    </main>
 
 @endsection

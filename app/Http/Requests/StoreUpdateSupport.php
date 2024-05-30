@@ -36,7 +36,10 @@ class StoreUpdateSupport extends FormRequest
             ]
         ];
 
-        if($this->method() === 'PUT') {
+        if($this->method() === 'PUT' || $this->method() === 'PATCH') {
+
+            $id = $this->support ?? $this->id;
+
             $rules['subject'] = [
                 'required',
                 'min:3',
@@ -44,7 +47,7 @@ class StoreUpdateSupport extends FormRequest
                 // há uma excessão quando o $id enviado para a rota
                 // é igual ao id da coluna "id"
                 // "unique:supports,subject,{$this->id},id"
-                Rule::unique('supports')->ignore($this->id)
+                Rule::unique('supports')->ignore($id)
             ];
         }
 
