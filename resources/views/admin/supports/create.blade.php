@@ -1,7 +1,14 @@
-<h1>Nova Dúvida</h1>
+@extends('template.layout')
 
-<x-alert/>
+@section('content')
+    <div class="container">
+        <h1 class="my-4">Nova Dúvida</h1>
 
-<form action="{{ route('supports.store') }}" method="POST">
-    @include('admin.supports.partials.form')
-</form>
+        <x-alert/>
+
+        <form action="{{ route('supports.store') }}" method="POST">
+            @include('admin.supports.partials.form')
+        </form>
+
+    </div>
+@endsection

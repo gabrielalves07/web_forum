@@ -1,10 +1,17 @@
-<h1>Editar Dúvida {{ $support->id }}</h1>
+@extends('template.layout')
 
-<x-alert/>
+@section('content')
+    <div class="container">
+        <h1 class="my-4">Editar Dúvida {{ $support->id }}</h1>
 
-<form action="{{ route('supports.update', $support->id) }}" method="POST">
-    @method('PUT')
-    @include('admin.supports.partials.form', [
-        'support' => $support
-    ])
-</form>
+        <x-alert/>
+
+        <form action="{{ route('supports.update', $support->id) }}" method="POST">
+            @method('PUT')
+            @include('admin.supports.partials.form', [
+                'support' => $support
+            ])
+        </form>
+    </div>
+@endsection
+

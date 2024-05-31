@@ -21,7 +21,7 @@
 
     <main class="container">
         <div class="table">
-            <table class="table table-bordered align-middle table-dark">
+            <table class="table rounded-3 overflow-hidden align-middle table-dark">
                 <thead>
                     <th>Assunto</th>
                     <th>Status</th>
@@ -34,9 +34,9 @@
                             <td>{{ $support->subject }}</td>
                             <td> <span class="badge rounded-pill bg-success py-2 px-3">{{ getStatusSupport($support->status) }}</span></td>
                             <td>{{ $support->body }}</td>
-                            <td>
-                                <a href="{{ route('supports.show', $support->id) }}" class="btn btn-primary">Ver</a>
-                                <a href="{{ route('supports.edit', $support->id) }}" class="btn btn-warning">Editar</a>
+                            <td class="text-end">
+                                <a href="{{ route('supports.show', $support->id) }}" class="btn btn-secondary">Ver</a>
+                                <a href="{{ route('supports.edit', $support->id) }}" class="btn btn-primary">Editar</a>
                             </td>
                         </tr>
                     @endforeach
