@@ -20,4 +20,6 @@ interface PaginationInterface
     public function getNumberNextPage(): int;
 
     public function getNumberPreviousPage(): int;
+
+    public function getTotalOfPages(): int;
 }

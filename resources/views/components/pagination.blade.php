@@ -1,10 +1,14 @@
 @if (isset($paginator))
-@php
-    $queryParams = (isset($appends) && gettype($appends) === 'array' ? '&' . http_build_query($appends) : '');
-@endphp
+    @php
+        $queryParams = (isset($appends) && gettype($appends) === 'array' ? '&' . http_build_query($appends) : '');
+    @endphp
     <nav class="d-flex justify-items-center justify-content-between">
-        <div class="d-flex justify-content-end flex-fill">
-            <ul class="pagination">
+        <div class="d-flex justify-content-between flex-fill align-items-center">
+            <small style="color: rgb(139, 139, 139);">
+                page {{ $paginator->currentPage() }} of {{ $paginator->getTotalOfPages() }}
+            </small>
+
+            <ul class="pagination m-0">
                 {{-- Previous Page Link --}}
                 @if ($paginator->isFirstPage())
                     <li class="page-item disabled" aria-disabled="true">

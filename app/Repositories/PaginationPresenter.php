@@ -75,4 +75,9 @@ class PaginationPresenter implements PaginationInterface
     {
         return $this->paginator->currentPage() - 1;
     }
+
+    public function getTotalOfPages(): int
+    {
+        return $this->paginator->lastPage();
+    }
 }

@@ -21,7 +21,7 @@ class SupportController extends Controller
         // we have access of all methods of the Class above
         $supports = $this->service->paginate(
             page: $request->get('page', 1),
-            totalPerPage: $request->get('per_page', 5),
+            totalPerPage: $request->get('per_page', 6),
             filter: $request->filter
         );
 
@@ -41,7 +41,7 @@ class SupportController extends Controller
             CreateSupportDTO::makeFromRequest($request)
         );
 
-        return redirect()->route('supports.index');
+        return redirect()->route('supports.index')->with('message', 'Tópico criado com sucesso!');
     }
 
     public function show(string $id)
@@ -74,7 +74,7 @@ class SupportController extends Controller
             return redirect()->back();
         }
 
-        return redirect()->route('supports.index');
+        return redirect()->route('supports.index')->with('message', 'Tópico atualizado com sucesso!');
 
     }
 
@@ -82,6 +82,6 @@ class SupportController extends Controller
     {
         $this->service->delete($id);
 
-        return redirect()->route('supports.index');
+        return redirect()->route('supports.index')->with('message', 'Tópico deletado com sucesso!');
     }
 }

@@ -7,4 +7,7 @@
     <label for="bodyArea" class="form-label">Descrição</label>
     <textarea id="bodyArea" class="form-control" name="body" cols="30" rows="5" placeholder="Descrição">{{ $support->body ?? old('body') }}</textarea>
 </div>
-<button type="submit" class="btn btn-dark">Submit</button>
+<div class="d-flex justify-content-start gap-2">
+    <a class="btn btn-outline-secondary" href="{{ route('supports.index') }}">Voltar</a>
+    <button type="submit" class="btn btn-dark">Submeter</button>
+</div>
